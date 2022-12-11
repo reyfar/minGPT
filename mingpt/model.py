@@ -186,7 +186,12 @@ class GPT(pl.LightningModule):
         if targets is not None:
             loss = F.cross_entropy(logits.view(-1, logits.size(-1)), targets.view(-1))
 
-        result = pl.TrainResult(minimize=loss, checkpoint_on=loss)
-        result.log('train_loss', loss)
+        ## Trainresult has been deprecated...
+        ## https://github.com/Lightning-AI/lightning/issues/5341
+        #result = pl.TrainResult(minimize=loss, checkpoint_on=loss)
+        #result.log('train_loss', loss)
+        
+        self.log(loss)
+        
         return result
 
