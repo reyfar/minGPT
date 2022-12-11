@@ -14,7 +14,8 @@ class LearningRateDecayCallback(pl.Callback):
 
     def on_train_batch_end(self, trainer, pl_module, batch, batch_idx, dataloader_idx):
         optimizer = trainer.optimizers[0]
-        _, y = batch
+        #_, y = batch
+        y = batch
 
         if self.lr_decay:
             self.tokens += (y >= 0).sum()  # number of tokens processed this step (i.e. label is not -100)
