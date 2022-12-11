@@ -193,5 +193,5 @@ class GPT(pl.LightningModule):
         
         self.log("train_loss", loss)
         
-        return result
+        return loss
 
