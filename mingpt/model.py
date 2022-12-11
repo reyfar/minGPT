@@ -191,7 +191,7 @@ class GPT(pl.LightningModule):
         #result = pl.TrainResult(minimize=loss, checkpoint_on=loss)
         #result.log('train_loss', loss)
         
-        self.log(loss)
+        self.log("train_loss", loss)
         
         return result
 
